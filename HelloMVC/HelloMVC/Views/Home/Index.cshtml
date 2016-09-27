@@ -5,11 +5,11 @@
     var value = 1000;
 }
 
-@{ 
+@{
     value += 1;
 }
 
-@{ 
+@{
     var name = "Shawn";
     var day = DateTime.Now.DayOfWeek.ToString();
 
@@ -17,7 +17,7 @@
     <p>Howdy, @name. Aren't @(day)s the best?</p>
 }
 
-@{ 
+@{
     var productId = 123;
     <p>Producty Id: ACME@(productId)</p>
 }
@@ -29,4 +29,24 @@
 @foreach (var car in Model)
 {
     <p>@car.Id - @car.Make - @car.Model</p>
+}
+
+@helper pluralizeChildren(int childCount)
+{
+    @(childCount == 1 ? "child" : "children");
+}
+
+@{
+    var childCount = 2;
+    <p>I have @childCount @pluralizeChildren(@childCount)</p>
+}
+
+@helper pluralize(int amount, string singular, string plural)
+{
+    @(amount == 1? singular : plural)
+}
+
+@{ 
+    var crisesCount = 2;
+    <p>Mr. President, there @pluralize(crisesCount, "is one crisis", "are " + crisesCount + " crises, that you must deal immediately")</p>
 }
