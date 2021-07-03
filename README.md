@@ -1,2 +1,2 @@
 # wintellectMVC
-Learning Wintellect MVC
+Wintellect MVC
